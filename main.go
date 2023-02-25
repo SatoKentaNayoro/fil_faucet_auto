@@ -37,6 +37,7 @@ func sendFunds(destAddrs []string) error {
 			return err
 		}
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+		req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Safari/537.36")
 
 		// 发送请求
 		client := &http.Client{}
