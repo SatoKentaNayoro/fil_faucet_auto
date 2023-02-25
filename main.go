@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"net/url"
@@ -11,7 +10,7 @@ import (
 
 func main() {
 	// 填写要发送代币的地址
-	destAddr := []string{"t16iz55rw4o4y7fxen3ek36nsj5wqn6vwohkrve7a", "t1j5zdhmbzf6mlvvgpgjr5y5nka2plg2s6pgezerq", "t3us7kvzxx5usee7vguzcb27rds7e7jo2o224i5p7tgw4o2mzpzeht2nnvj4ghoji3tvzmloy3lxh3ffbky3aa"}
+	destAddr := []string{"t3us7kvzxx5usee7vguzcb27rds7e7jo2o224i5p7tgw4o2mzpzeht2nnvj4ghoji3tvzmloy3lxh3ffbky3aa", "t16iz55rw4o4y7fxen3ek36nsj5wqn6vwohkrve7a", "t1j5zdhmbzf6mlvvgpgjr5y5nka2plg2s6pgezerq"}
 
 	// 设置定时器，每隔一段时间发送一次代币
 	ticker := time.NewTicker(5 * time.Minute)
@@ -49,7 +48,7 @@ func sendFunds(destAddrs []string) error {
 
 		// 检查响应状态码
 		if resp.StatusCode != http.StatusOK {
-			return fmt.Errorf("unexpected status code: %d", resp.StatusCode)
+			log.Printf("unexpected status code: %d, address: %s", resp.StatusCode, destAddr)
 		}
 	}
 	return nil
